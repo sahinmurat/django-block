@@ -5,8 +5,4 @@ urlpatterns = [
    
   
     path('', home, name = 'home'),
-    path('list/', list, name = 'list'),
-    path('create/',todo_create, name = 'create'),
-    path('<int:id>/delete/',todo_delete, name = 'delete'),
-    path('<int:id>/update/', todo_update, name = 'update'),
 ]

@@ -3,10 +3,12 @@ from django.db.models.fields import TextField
 from django.contrib.auth.models import User
 
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=50)
 
 class Post(models.Model):
     OPTIONS =(
-        ('d', 'Draft')
+        ('d', 'Draft'),
         ('p', 'Published')
     )
     title = models.CharField(max_length=50)
