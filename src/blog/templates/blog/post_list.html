@@ -5,11 +5,11 @@
 
 <h1> POST LIST</h1>
 
-{% for objectin object_list %}
-{{ object.title }}
+{% for obj in object_list %}
+<h1> {{ obj.title   }} </h1>
+<p> {{ obj.content   }} </p>
+<img src="{{ obj.image.url }}">
 {% endfor %}
-<!-- <img src = "{{}}"  {{ object.image.url }}> -->
-{{ object.content }}
-    
+
 {% endblock content %}
     
