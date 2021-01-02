@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1> POST LIST</h1>
+
+{% for objectin object_list %}
+{{ object.title }}
+{% endfor %}
+<!-- <img src = "{{}}"  {{ object.image.url }}> -->
+{{ object.content }}
+    
+{% endblock content %}
+    
