@@ -4,7 +4,7 @@ from .forms import PostForm
 
 
 def post_list(request):
-    qs = Post.objects.filter(status='p')
+    qs = Post.objects.filter(status='d')
     context = {
         "object_list": qs
     }

@@ -39,10 +39,10 @@ class Post(models.Model):
         return self.comment_set.all().count()
 
     def view_count(self):
-        return self.like_set.all().count()
+        return self.postview_set.all().count()
     
     def like_count(self):
-        return self.postview_set.all().count()
+        return self.like_set.all().count()
 
 
 class Comment(models.Model):
