@@ -25,12 +25,13 @@ class Post(models.Model):
     content = models.TextField()
     image = models.ImageField(
         upload_to=user_directory_path, default='django.jpg')
-    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    category = models.ForeignKey(
+        Category, on_delete=models.PROTECT, related_name="cats")
     publish_date = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(max_length=10, choices=OPTIONS, default='d')
-    slug = models.SlugField( blank=True, unique=True )
+    slug = models.SlugField(blank=True, unique=True)  # how-to-learn-django
 
     def __str__(self):
         return self.title
@@ -40,9 +41,12 @@ class Post(models.Model):
 
     def view_count(self):
         return self.postview_set.all().count()
-    
+
     def like_count(self):
         return self.like_set.all().count()
+
+    def comments(self):
+        return self.comment_set.all()
 
 
 class Comment(models.Model):
@@ -58,7 +62,7 @@ class Comment(models.Model):
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
- 
+
     def __str__(self):
         return self.user.username
 
