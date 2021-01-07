@@ -26,7 +26,11 @@
     <button type="submit">Like</button> {{ object.like_count }}
 
 </form>
-
-
+<br><hr>
+{% if user.id == object.author.id   %}
+<a href="{% url 'blog:update' object.slug  %}  ">Update</a>
+<hr>
+<a href="{% url 'blog:delete' object.slug  %}  ">Delete</a>
+{% endif %}
 
 {% endblock content %}
