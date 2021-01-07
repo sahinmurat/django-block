@@ -84,3 +84,4 @@ def like(request, slug):
             like_qs[0].delete()
         else:
             Like.objects.create(user=request.user, post=obj)
+        return redirect('blog:detail', slug=slug)
