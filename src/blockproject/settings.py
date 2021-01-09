@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #myapps
     'blog.apps.BlogConfig',
-    'users.app.UserConfig',
+    'users.apps.UsersConfig',
     #third party
     'crispy_forms'
 ]
@@ -130,3 +130,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_ROOT = BASE_DIR / "media_root"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = "blog:list"
+
+LOGIN_URL = 'login'
